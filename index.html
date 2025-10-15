@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section bg-primary text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold">Welcome to GMU Coding Club</h1>
+                <p class="lead">Where passion meets programming. Join us to build, learn, and innovate together.</p>
+                <div class="mt-4">
+                    <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg me-3">Join Now</a>
+                    <a href="{{ url_for('events') }}" class="btn btn-outline-light btn-lg">View Events</a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <i class="fas fa-laptop-code display-1"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="mb-4">About Our Club</h2>
+                <p class="lead">
+                    The GMU Coding Club is a student-led organization dedicated to fostering a community of passionate 
+                    programmers, developers, and tech enthusiasts. We believe in learning by doing and growing together.
+                </p>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-4 text-center">
+                <div class="feature-box p-4">
+                    <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                    <h4>Community</h4>
+                    <p>Connect with like-minded students and build lasting relationships.</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="feature-box p-4">
+                    <i class="fas fa-code fa-3x text-primary mb-3"></i>
+                    <h4>Projects</h4>
+                    <p>Work on real-world projects and build your portfolio.</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="feature-box p-4">
+                    <i class="fas fa-graduation-cap fa-3x text-primary mb-3"></i>
+                    <h4>Learning</h4>
+                    <p>Attend workshops and learn from industry experts.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Upcoming Events -->
+<section class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Upcoming Events</h2>
+        <div class="row">
+            {% for event in events %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ event.title }}</h5>
+                        <p class="card-text">{{ event.description }}</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-calendar me-2"></i>{{ event.date }}</li>
+                            <li><i class="fas fa-clock me-2"></i>{{ event.time }}</li>
+                            <li><i class="fas fa-map-marker-alt me-2"></i>{{ event.location }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ url_for('events') }}" class="btn btn-primary">View All Events</a>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto text-center">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for the latest updates and events.</p>
+                <form class="d-flex">
+                    <input type="email" class="form-control me-2" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

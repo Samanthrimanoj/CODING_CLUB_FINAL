@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}User Profile - GMU Coding Club{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="fas fa-user-circle"></i> User Profile</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Personal Information</h5>
+                            <p><strong>Username:</strong> {{ user.username }}</p>
+                            <p><strong>Full Name:</strong> {{ user.full_name }}</p>
+                            <p><strong>Email:</strong> {{ user.email }}</p>
+                            <p><strong>Role:</strong> <span class="badge bg-info">{{ user.role }}</span></p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Academic Information</h5>
+                            <p><strong>Major:</strong> {{ user.major or 'Not specified' }}</p>
+                            <p><strong>Academic Year:</strong> {{ user.academic_year or 'Not specified' }}</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <a href="{{ url_for('events') }}" class="btn btn-primary">Browse Events</a>
+                        <a href="{{ url_for('projects') }}" class="btn btn-outline-primary">View Projects</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

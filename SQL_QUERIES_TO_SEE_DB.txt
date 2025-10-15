@@ -1,0 +1,27 @@
+USE gmu_coding_club;
+SHOW TABLES;
+-- Check events
+SELECT * FROM events;
+
+-- Check admin users  
+SELECT id, username, email, role FROM admin_users;
+
+-- Check regular users
+SELECT id, username, email, role FROM users;
+
+-- Check all tables
+SELECT * FROM event_registrations;
+SELECT * FROM club_members;
+SELECT * FROM projects;
+
+USE gmu_coding_club;
+
+-- Drop tables in correct order (due to foreign keys)
+DROP TABLE IF EXISTS event_registrations;
+DROP TABLE IF EXISTS events;
+DROP TABLE IF EXISTS club_members;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS admin_users;
+
+-- Now run the CREATE TABLE statements again

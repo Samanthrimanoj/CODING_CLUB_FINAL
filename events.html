@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Events - GMU Coding Club{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-center mb-5">Upcoming Events & Competitions</h1>
+    
+    <div class="row">
+        {% for event in events %}
+        <div class="col-lg-6 mb-4">
+            <div class="card event-card shadow-lg h-100">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">{{ event.title }}</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ event.description }}</p>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <i class="fas fa-calendar text-primary"></i>
+                            <strong>Date:</strong> {{ event.date }}
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock text-primary"></i>
+                            <strong>Time:</strong> {{ event.time }}
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                            <strong>Location:</strong> {{ event.location }}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary">Register Now</button>
+                    <button class="btn btn-outline-secondary">Add to Calendar</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Past Events Section -->
+    <div class="mt-5">
+        <h3 class="text-center mb-4">Past Events</h3>
+        <div class="alert alert-info text-center">
+            Check back soon for highlights from our past events and competitions!
+        </div>
+    </div>
+</div>
+{% endblock %}

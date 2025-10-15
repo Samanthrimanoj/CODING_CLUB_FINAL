@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Code Quiz - GMU Coding Club{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-center mb-5">Coding Challenge Quiz</h1>
+    
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-dark text-white">
+                    <h3 class="mb-0">Test Your Programming Knowledge</h3>
+                </div>
+                <div class="card-body">
+                    <div id="quiz-container" class="text-center">
+                        <p class="lead">Click the button below to start the quiz!</p>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button id="start-btn" class="btn btn-primary btn-lg">Start Quiz</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+{% endblock %}
